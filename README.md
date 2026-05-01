@@ -1,71 +1,89 @@
-# AI Shopping Assistant (Flowise + OpenRouter)
+# AI Shopping Assistant
 
-## Project title
-AI Shopping Assistant
+A responsive, modern shopping recommendation assistant built with a conversational UX.  
+Users provide a product category and budget, and the assistant returns the top 3 product recommendations with clear reasoning.
 
-## Short description
-This project is a modern frontend that recommends top 3 products based on user category and budget. It follows a 5-step structure: Welcome -> Category -> Budget -> Recommendation -> End.
+## Features
 
-The app now works out-of-the-box with built-in recommendations and can optionally use OpenRouter for AI-enhanced response wording.
+- Interactive multi-step assistant flow: `Welcome -> Category -> Budget -> Recommendation -> End`
+- Quick category actions for faster input (`Laptop`, `Phone`, `Earbuds`, `Shoes`)
+- One-click demo mode for testing without any API key
+- Local recommendation engine (works out of the box)
+- Optional OpenRouter enhancement for AI-polished responses
+- Clean glassmorphism UI with background hero art
 
-## Build in Flowise (required)
-Create one chatflow with these logical nodes:
+## Tech Stack
 
-1. **Welcome Node**: "Hi, I can help you shop smarter."
-2. **Ask Category**: "Which category are you shopping for? (phone, laptop, shoes, etc.)"
-3. **Ask Budget**: "What is your budget range?"
-4. **LLM Node (OpenRouter)**:
-   - Provider: OpenAI compatible endpoint via OpenRouter
-   - Model example: `openai/gpt-4o-mini` or any allowed model on your OpenRouter account
-   - Prompt template:
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- Optional: OpenRouter Chat Completions API
 
-```txt
-You are a shopping assistant.
-User category: {{category}}
-User budget: {{budget}}
+## Project Structure
 
-Recommend 3 products that fit the category and budget.
-For each product include:
-1) Product name
-2) Approx price
-3) Why it matches the budget and user need
-Keep response concise and practical.
+```text
+.
+├── index.html
+├── styles.css
+├── app.js
+└── assets
+    ├── hero.png
+    └── screenshots
+        └── ui-home.png
 ```
 
-5. **Response Node**: return final answer to user
+## Getting Started
 
-## Connect OpenRouter (optional but recommended)
-In the page UI, paste your OpenRouter API key into **OpenRouter API Key (optional)** and click **Save Key**.
+### 1) Clone repository
 
-- Without key: built-in recommendation engine still works
-- With key: output is rewritten using model `openai/gpt-4o-mini`
+```bash
+git clone https://github.com/jdhruv555/ai_shopping_assistant.git
+cd ai_shopping_assistant
+```
 
-## Local run
-You can open `index.html` directly, or run a simple static server:
+### 2) Run locally
+
+Open `index.html` directly, or use a static server:
 
 ```bash
 python3 -m http.server 8080
 ```
 
-Then open `http://localhost:8080`.
+Then visit: `http://localhost:8080`
 
-## Deploy to Vercel
-1. Install Vercel CLI:
+## How to Use
+
+1. Open the chat interface.
+2. Enter a category (or click a quick category button).
+3. Enter your budget in INR.
+4. Get top 3 recommendations instantly.
+5. Use **Run Demo Conversation** to test everything without external setup.
+
+## Optional OpenRouter Setup
+
+To enable AI-enhanced recommendation wording:
+
+1. Enter your OpenRouter API key in the **OpenRouter API Key (optional)** field.
+2. Click **Save Key**.
+3. Ask for recommendations as usual.
+
+If no API key is provided, the app continues using the built-in recommendation logic.
+
+## Screenshots
+
+### Main UI
+
+![AI Shopping Assistant UI](./assets/screenshots/ui-home.png)
+
+## Deployment
+
+You can deploy this project as a static site on Vercel:
 
 ```bash
 npm i -g vercel
-```
-
-2. Deploy from this folder:
-
-```bash
 vercel
 ```
 
-3. Follow prompts and share the generated URL.
+## Author
 
-## Submission checklist
-- Project title: **AI Shopping Assistant**
-- Flowise link: your public/shared chatflow URL
-- Short description: use text above
-- Screenshot: capture the running assistant page
+Made by **Dhruv Jha**
