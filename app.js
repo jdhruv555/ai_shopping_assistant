@@ -30,6 +30,7 @@ const keyEl = document.getElementById("openrouter-key");
 const saveKeyBtn = document.getElementById("save-key-btn");
 const runDemoBtn = document.getElementById("run-demo-btn");
 const resetChatBtn = document.getElementById("reset-chat-btn");
+const quickCategoryBtns = document.querySelectorAll(".quick-category-btn");
 
 function addMessage(role, text) {
   const msg = document.createElement("div");
@@ -46,7 +47,7 @@ function resetConversation(showIntro = true) {
   state.budget = 0;
   if (showIntro) {
     addMessage("bot", "Hi! I am your AI Shopping Assistant.");
-    addMessage("bot", "Type anything to begin.");
+    addMessage("bot", "Tell me a category (laptop, phone, earbuds, shoes) to begin.");
   }
 }
 
@@ -149,11 +150,15 @@ async function handleUserInput(rawInput) {
   addMessage("user", input);
 
   if (state.step === "welcome") {
+    const maybeCategory = input.toLowerCase();
+    if (["laptop", "phone", "earbuds", "shoes"].includes(maybeCategory)) {
+      state.category = maybeCategory;
+      state.step = "budget";
+      addMessage("bot", `Great choice: ${state.category}. What's your budget in INR?`);
+      return;
+    }
     state.step = "category";
-    addMessage(
-      "bot",
-      "Great. Which category are you shopping for?\nTry: laptop, phone, earbuds, shoes"
-    );
+    addMessage("bot", "Which category are you shopping for?\nTry: laptop, phone, earbuds, shoes");
     return;
   }
 
@@ -228,3 +233,11 @@ resetChatBtn.addEventListener("click", () => {
 
 loadSavedKey();
 resetConversation(true);
+
+quickCategoryBtns.forEach((btn) => {
+  btn.addEventListener("click", async () => {
+    const value = btn.dataset.value || "";
+    if (!value) return;
+    await handleUserInput(value);
+  });
+});

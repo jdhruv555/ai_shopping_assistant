@@ -201,7 +201,8 @@ code {
 }
 
 #run-demo-btn,
-#reset-chat-btn {
+#reset-chat-btn,
+.quick-category-btn {
   border: 1px solid rgba(143, 231, 255, 0.45);
   border-radius: 10px;
   background: rgba(17, 45, 80, 0.75);
@@ -211,8 +212,21 @@ code {
   cursor: pointer;
 }
 
+.quick-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.6rem;
+}
+
+#run-demo-btn,
+#reset-chat-btn {
+  background: rgba(12, 56, 92, 0.82);
+}
+
 #run-demo-btn:hover,
-#reset-chat-btn:hover {
+#reset-chat-btn:hover,
+.quick-category-btn:hover {
   background: rgba(24, 64, 110, 0.85);
 }
 
