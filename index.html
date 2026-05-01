@@ -39,10 +39,35 @@
 
         <div class="assistant-body">
           <p class="hint">
-            Replace the placeholders in <code>app.js</code> with your Flowise share
-            link to load the live chat widget here.
+            This is now fully functional. Add your OpenRouter API key for AI-enhanced
+            recommendations, or use built-in smart recommendations without it.
           </p>
-          <div id="flowise-widget-target"></div>
+
+          <div class="config-row">
+            <label for="openrouter-key">OpenRouter API Key (optional)</label>
+            <div class="config-input-wrap">
+              <input
+                id="openrouter-key"
+                type="password"
+                placeholder="sk-or-v1-..."
+                autocomplete="off"
+              />
+              <button id="save-key-btn" type="button">Save Key</button>
+            </div>
+          </div>
+
+          <div id="chat-log" class="chat-log" aria-live="polite"></div>
+
+          <form id="chat-form" class="chat-form">
+            <input
+              id="chat-input"
+              type="text"
+              placeholder="Type your answer..."
+              autocomplete="off"
+              required
+            />
+            <button id="send-btn" type="submit">Send</button>
+          </form>
         </div>
       </section>
 

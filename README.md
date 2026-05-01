@@ -4,7 +4,9 @@
 AI Shopping Assistant
 
 ## Short description
-This project is a modern frontend for a Flowise chatflow that recommends top 3 products based on user category and budget. It follows a 5-step structure: Welcome -> Category -> Budget -> Recommendation -> End.
+This project is a modern frontend that recommends top 3 products based on user category and budget. It follows a 5-step structure: Welcome -> Category -> Budget -> Recommendation -> End.
+
+The app now works out-of-the-box with built-in recommendations and can optionally use OpenRouter for AI-enhanced response wording.
 
 ## Build in Flowise (required)
 Create one chatflow with these logical nodes:
@@ -32,12 +34,11 @@ Keep response concise and practical.
 
 5. **Response Node**: return final answer to user
 
-## Connect frontend with Flowise
-Edit `app.js`:
+## Connect OpenRouter (optional but recommended)
+In the page UI, paste your OpenRouter API key into **OpenRouter API Key (optional)** and click **Save Key**.
 
-- Replace `FLOWISE_CHATFLOW_ID`
-- Replace `FLOWISE_API_HOST`
-- (Optional) Replace `FLOWISE_EMBED_SCRIPT_URL` if your Flowise docs specify a different URL
+- Without key: built-in recommendation engine still works
+- With key: output is rewritten using model `openai/gpt-4o-mini`
 
 ## Local run
 You can open `index.html` directly, or run a simple static server:
