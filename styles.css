@@ -193,6 +193,29 @@ code {
   filter: brightness(1.06);
 }
 
+.demo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+#run-demo-btn,
+#reset-chat-btn {
+  border: 1px solid rgba(143, 231, 255, 0.45);
+  border-radius: 10px;
+  background: rgba(17, 45, 80, 0.75);
+  color: #e9f5ff;
+  font-weight: 600;
+  padding: 0.58rem 0.82rem;
+  cursor: pointer;
+}
+
+#run-demo-btn:hover,
+#reset-chat-btn:hover {
+  background: rgba(24, 64, 110, 0.85);
+}
+
 .chat-log {
   min-height: 380px;
   max-height: 460px;

@@ -28,6 +28,8 @@ const formEl = document.getElementById("chat-form");
 const inputEl = document.getElementById("chat-input");
 const keyEl = document.getElementById("openrouter-key");
 const saveKeyBtn = document.getElementById("save-key-btn");
+const runDemoBtn = document.getElementById("run-demo-btn");
+const resetChatBtn = document.getElementById("reset-chat-btn");
 
 function addMessage(role, text) {
   const msg = document.createElement("div");
@@ -35,6 +37,17 @@ function addMessage(role, text) {
   msg.textContent = text;
   logEl.appendChild(msg);
   logEl.scrollTop = logEl.scrollHeight;
+}
+
+function resetConversation(showIntro = true) {
+  logEl.innerHTML = "";
+  state.step = "welcome";
+  state.category = "";
+  state.budget = 0;
+  if (showIntro) {
+    addMessage("bot", "Hi! I am your AI Shopping Assistant.");
+    addMessage("bot", "Type anything to begin.");
+  }
 }
 
 function loadSavedKey() {
@@ -201,6 +214,17 @@ formEl.addEventListener("submit", async (event) => {
   await handleUserInput(value);
 });
 
+runDemoBtn.addEventListener("click", async () => {
+  resetConversation(false);
+  addMessage("bot", "Demo mode started (no API required).");
+  await handleUserInput("start");
+  await handleUserInput("earbuds");
+  await handleUserInput("3000");
+});
+
+resetChatBtn.addEventListener("click", () => {
+  resetConversation(true);
+});
+
 loadSavedKey();
-addMessage("bot", "Hi! I am your AI Shopping Assistant.");
-addMessage("bot", "Type anything to begin.");
+resetConversation(true);
