@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Shopping Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-overlay" aria-hidden="true"></div>
+
+    <main class="page-wrap">
+      <header class="hero-card">
+        <p class="eyebrow">Flowise + OpenRouter</p>
+        <h1>AI Shopping Assistant</h1>
+        <p class="subtitle">
+          Get 3 smart product recommendations based on your category and budget.
+        </p>
+        <div class="chips">
+          <span>Welcome</span>
+          <span>Category</span>
+          <span>Budget</span>
+          <span>Recommendation</span>
+          <span>End</span>
+        </div>
+      </header>
+
+      <section class="assistant-shell" aria-label="Shopping assistant chat area">
+        <div class="assistant-head">
+          <div class="dot"></div>
+          <h2>Talk to your assistant</h2>
+        </div>
+
+        <div class="assistant-body">
+          <p class="hint">
+            Replace the placeholders in <code>app.js</code> with your Flowise share
+            link to load the live chat widget here.
+          </p>
+          <div id="flowise-widget-target"></div>
+        </div>
+      </section>
+
+      <footer class="footnote">
+        <p>
+          Built for AI Assistant Builder Lab. Deploy this folder on Vercel for a
+          shareable link.
+        </p>
+      </footer>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
